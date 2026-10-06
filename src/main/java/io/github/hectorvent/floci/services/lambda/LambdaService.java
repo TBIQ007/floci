@@ -1036,14 +1036,6 @@ public class LambdaService {
         snapshot.setState(fn.getState());
         snapshot.setCodeSizeBytes(fn.getCodeSizeBytes());
         snapshot.setEnvironment(fn.getEnvironment());
-        // Versions are immutable code snapshots on AWS: carry the code
-        // identity and location so the version's configuration is complete
-        // and version-qualified invokes can run the same code.
-        snapshot.setCodeSha256(fn.getCodeSha256());
-        snapshot.setCodeLocalPath(fn.getCodeLocalPath());
-        snapshot.setHotReloadHostPath(fn.getHotReloadHostPath());
-        snapshot.setS3Bucket(fn.getS3Bucket());
-        snapshot.setS3Key(fn.getS3Key());
         snapshot.setLastModified(System.currentTimeMillis());
         snapshot.setRevisionId(UUID.randomUUID().toString());
 
